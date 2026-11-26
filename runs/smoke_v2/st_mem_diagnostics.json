@@ -1,0 +1,56 @@
+{
+  "history": [
+    {
+      "epoch": 0.0,
+      "loss": 0.9823635683247918,
+      "effective_rank": 1.2451552152633667,
+      "cov_effective_rank": 14.470181465148926,
+      "cos_sim": 0.9999043941497803,
+      "rank_denominator": 32.0,
+      "var_mean": 7.205441215774044e-05,
+      "var_min": 1.6748295820434578e-05,
+      "std_mean": 0.00821064505726099,
+      "dead_dim_frac": 0.0,
+      "erank_ratio": 0.03891110047698021,
+      "cov_erank_ratio": 0.45219317078590393,
+      "loss_recon": 0.9823635683247918
+    },
+    {
+      "epoch": 1.0,
+      "loss": 0.9800264204018995,
+      "effective_rank": 1.2437093257904053,
+      "cov_effective_rank": 14.470743179321289,
+      "cos_sim": 0.9999053478240967,
+      "rank_denominator": 32.0,
+      "var_mean": 7.199426181614399e-05,
+      "var_min": 1.67588241311023e-05,
+      "std_mean": 0.008197885006666183,
+      "dead_dim_frac": 0.0,
+      "erank_ratio": 0.038865916430950165,
+      "cov_erank_ratio": 0.4522107243537903,
+      "loss_recon": 0.9800264204018995
+    }
+  ],
+  "summary": {
+    "arm": "st_mem",
+    "final_loss": 0.9800264204018995,
+    "final_effective_rank": 1.2437093257904053,
+    "final_erank_ratio": 0.038865916430950165,
+    "final_cov_effective_rank": 14.470743179321289,
+    "final_cov_erank_ratio": 0.4522107243537903,
+    "final_std_mean": 0.008197885006666183,
+    "final_cos_sim": 0.9999053478240967,
+    "complete_collapse": false,
+    "dimensional_collapse": false,
+    "offset_dominated": true,
+    "erank_delta": -0.0014458894729614258,
+    "collapsed_to_zero": false,
+    "recovered": false,
+    "collapse_epoch": null,
+    "recovery_epoch": null,
+    "erank_monotone_decreasing": false
+  },
+  "collapsed": false,
+  "collapse_step": null,
+  "collapse_reason": ""
+}
