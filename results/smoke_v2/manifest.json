@@ -1,0 +1,239 @@
+{
+  "run_mode": "smoke",
+  "config": {
+    "name": "smoke",
+    "signal": {
+      "fs": 250,
+      "window_s": 10.0,
+      "patch_samples": 50,
+      "n_leads": 8,
+      "reduced_lead": true
+    },
+    "model": {
+      "encoder_embed_dim": 96,
+      "encoder_depth": 2,
+      "encoder_num_heads": 4,
+      "predictor_embed_dim": 64,
+      "predictor_depth": 2,
+      "predictor_num_heads": 4,
+      "mlp_ratio": 4.0,
+      "qkv_bias": true,
+      "drop_rate": 0.0,
+      "attn_drop_rate": 0.0,
+      "drop_path_rate": 0.0,
+      "init_std": 0.02,
+      "pos_type": "sincos",
+      "use_cropa": true,
+      "mask_type": "block",
+      "mask_scale": [
+        0.175,
+        0.225
+      ],
+      "forward_target": "tokens",
+      "predictor_cropa": false
+    },
+    "loss": {
+      "lambda_mask": 1.0,
+      "weight_forward": 1.0,
+      "beta_reg": 0.1,
+      "loss_fn": "smooth_l1",
+      "anti_collapse": "vicreg",
+      "reg_target": "pooled",
+      "use_ema_target": true,
+      "vicreg_var_gamma": 1.0,
+      "vicreg_var_weight": 1.0,
+      "vicreg_cov_weight": 0.04,
+      "vq_codebook_size": 512,
+      "vq_temperature": 0.07,
+      "vq_entropy_weight": 0.1,
+      "sigreg_n_slices": 64,
+      "sigreg_n_freqs": 16
+    },
+    "optim": {
+      "epochs": 2,
+      "batch_size": 4,
+      "lr": 0.0005,
+      "min_lr": 1e-06,
+      "warmup_epochs": 0,
+      "weight_decay": 0.05,
+      "grad_clip": 1.0,
+      "amp": false,
+      "ema_start": 0.996,
+      "ema_end": 1.0,
+      "num_workers": 0,
+      "seed": 0,
+      "max_steps_per_epoch": null,
+      "collapse_check_every": 200,
+      "on_collapse": "warn",
+      "collapse_loss_frac": 0.02,
+      "collapse_cos_sim": 0.9995,
+      "collapse_min_epochs": 3,
+      "collapse_patience": 5,
+      "amp_dtype": "auto",
+      "accum_steps": 1
+    },
+    "forward": {
+      "context_windows": 2,
+      "horizons_s": [
+        10.0,
+        30.0,
+        60.0,
+        300.0,
+        600.0,
+        1800.0,
+        3600.0
+      ],
+      "horizon_loguniform": true,
+      "cross_target": "pooled",
+      "standardize_target": true,
+      "residual_persistence": true,
+      "grad_context_windows": 2,
+      "resample_pairs": true,
+      "patient_aware": false,
+      "patient_aware_prob": 0.25,
+      "intra_window": true,
+      "intra_window_frac": 0.6
+    },
+    "hierarchical": {
+      "enabled": false,
+      "l2_embed_dim": 384,
+      "l2_depth": 4,
+      "l2_num_heads": 6,
+      "l2_predictor_dim": 192,
+      "l2_predictor_depth": 2,
+      "l2_context_windows": 4,
+      "l2_horizons_s": [
+        60.0,
+        300.0,
+        600.0,
+        1800.0
+      ],
+      "l2_weight": 1.0,
+      "l2_mask_weight": 0.5
+    },
+    "data": {
+      "input_root": "D:\\\\Ishtiaque\\\\Dataset",
+      "cache_dir": "D:\\\\Ishtiaque\\\\Cardio-JEPA-fixed\\cache",
+      "max_records_per_dataset": 64,
+      "max_long_records": 6,
+      "pretrain_datasets": [
+        "meeti",
+        "mimic",
+        "code15",
+        "chapman",
+        "ningbo",
+        "cpsc",
+        "ptbxl"
+      ],
+      "long_datasets": [
+        "ltaf",
+        "afdb",
+        "shdb",
+        "mitbih"
+      ],
+      "use_noise_corpora": false,
+      "allow_synthetic_fallback": true,
+      "synthetic_n_short": 64,
+      "synthetic_n_long": 6,
+      "synthetic_long_minutes": 30.0
+    },
+    "evaluation": {
+      "linear_probe_epochs": 3,
+      "linear_probe_lr": 0.001,
+      "linear_probe_batch_size": 128,
+      "bootstrap_n": 100,
+      "label_fractions": [
+        0.01,
+        0.1,
+        0.5,
+        1.0
+      ],
+      "anticipation_horizons_s": [
+        300.0,
+        900.0,
+        1800.0
+      ],
+      "anticipation_context_s": 10.0,
+      "anticipation_stride_s": 30.0,
+      "anticipation_guard_s": 5.0
+    },
+    "out_dir": "D:\\\\Ishtiaque\\\\Cardio-JEPA-fixed\\runs\\smoke_v2"
+  },
+  "datasets_found": {
+    "ptbxl": "PTB-XL",
+    "cpsc": "CPSC2018",
+    "chapman": "Chapman-Shaoxing",
+    "ltaf": "Long-Term AF",
+    "afdb": "MIT-BIH AF DB",
+    "shdb": "SHDB-AF (Japan Holter)"
+  },
+  "n_long_records": 18,
+  "long_train_records": [
+    "00",
+    "01",
+    "03",
+    "05",
+    "06",
+    "07",
+    "04048",
+    "04746",
+    "04908",
+    "001",
+    "002",
+    "003",
+    "005"
+  ],
+  "long_heldout_records": [
+    "04015",
+    "04043",
+    "04126",
+    "004",
+    "006"
+  ],
+  "data_info": {
+    "n_short": 192,
+    "short_sources": {
+      "chapman": 64,
+      "cpsc": 64,
+      "ptbxl": 64
+    },
+    "steps_per_epoch": 152,
+    "n_forward_pairs": 416
+  },
+  "tables": [
+    "stage1_linear_probe.csv",
+    "stage2_anticipation.csv",
+    "label_efficiency.csv",
+    "forecast_skill.csv",
+    "stage3_collapse.csv",
+    "stage3_pareto.csv",
+    "stage3_trajectories.csv",
+    "stage4_horizon_sweep.csv",
+    "stage4_burden.csv"
+  ],
+  "scalars": {
+    "runtime_estimate": {
+      "s_per_step": 0.014718294143676758,
+      "steps_per_epoch": 152.0,
+      "steps_per_model": 304.0,
+      "hours_per_model": 0.001242878172132704,
+      "hours_total": 0.011185903549194336,
+      "n_models": 9.0
+    },
+    "stage1_gonogo_ptbxl": {
+      "delta": 0.10416666666666663,
+      "lo": -0.39229166666666665,
+      "hi": 0.5897222222222221,
+      "p_value": 0.68,
+      "significant": false
+    },
+    "stage1_gonogo_cpsc": {
+      "delta": -0.04062850729517398,
+      "lo": -0.36113215488215494,
+      "hi": 0.16009280303030304,
+      "p_value": 0.58,
+      "significant": false
+    },
+    "stage4_h2_monotone": false
+  }
+}

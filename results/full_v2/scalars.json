@@ -1,0 +1,24 @@
+{
+  "runtime_estimate": {
+    "s_per_step": 0.35476815700531006,
+    "steps_per_epoch": 2636.0,
+    "steps_per_model": 263600.0,
+    "hours_per_model": 25.976912829611038,
+    "hours_total": 233.79221546649933,
+    "n_models": 9.0
+  },
+  "stage1_gonogo_ptbxl": {
+    "delta": 0.025181950921320584,
+    "lo": -0.002996066629589425,
+    "hi": 0.05240629723420223,
+    "p_value": 0.074,
+    "significant": false
+  },
+  "stage1_gonogo_cpsc": {
+    "delta": 0.02182244291178148,
+    "lo": 0.009426958772254029,
+    "hi": 0.03401982823415478,
+    "p_value": 0.0,
+    "significant": true
+  }
+}

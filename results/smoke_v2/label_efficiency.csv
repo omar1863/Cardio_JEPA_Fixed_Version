@@ -1,0 +1,8 @@
+,1%,10%,50%,100%
+anticipation/masked_only/context,0.5973,0.336,0.6438,0.6861
+anticipation/masked_only/world,0.514,0.6728,0.6348,0.6632
+anticipation/forward_only/context,0.5478,0.5537,0.4527,0.5729
+anticipation/forward_only/world,0.5331,0.5362,0.6896,0.6203
+anticipation/dual/context,0.4917,0.4413,0.4751,0.5223
+anticipation/dual/world,0.5639,0.4648,0.4647,0.4743
+anticipation/st_mem/context,0.4745,0.4649,0.5226,0.4642
